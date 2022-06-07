@@ -1,11 +1,17 @@
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
 import React, { createContext, useState } from 'react';
-// firestore
+// conexión a firestore
 import credentials from '../credenciales';
 const db = getFirestore(credentials);
 
 const ListCardContext = createContext();
 
+
+/**
+ * It's a function that returns a context provider that has a state of list and a function to get the
+ * list.
+ * @returns The data object is being returned.
+ */
 const ListCardProvider = ({ children }) => {
 
   const [list, setList] = useState([])

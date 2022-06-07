@@ -8,6 +8,13 @@ const initialState = {
 }
 
 
+/**
+ * It's a function that returns a ServiceContext.Provider component that has a value prop that is an
+ * object that contains the state of the service, a function to set the state of the service, a
+ * function to handle the change of the state of the service, a function to reset the state of the
+ * service, and a function to cancel the state of the service.
+ * @returns The data object is being returned.
+ */
 const ServiceProvider = ({ children }) => {
 
   const [service, setService] = useState(initialState)

@@ -1,101 +1,62 @@
-.form-content{
-  min-height: 50vh;
-  display: flex;
-  flex-direction: column;
-    height: 55%;
-    border: 1px solid #d7d7d7;
-    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
-    border: 1px solid #d7d7d7;
+.form-content {
+	max-height: 50vh;
+	display: flex;
+	flex-direction: column;
+	height: 55%;
+	border: 1px solid hsl(0, 0%, 84%);
+	box-shadow: 0 2px 3px 0 hsla(0, 0%, 0%, 0.1);
+	border: 1px solid hsl(0, 0%, 84%);
 }
-h3{
-  margin: 0 auto;
-  text-align: initial;
-  margin: .5em 0 0.5em 1em;
+
+.form-title {
+	margin: 0 auto;
+	text-align: initial;
+	margin: .5em 0 0.5em 1em;
+  font-size: 1.5em;
+  font-weight: bold;
 }
-.form{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+
+/**
+ * Formulario
+ */
+ 
+.form {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
 }
-.form-input{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 70%;
-  padding: 0em 0 1em 1.5em;
-  align-items: flex-start;
+
+.content-inputs {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 70%;
+	padding: 0em 0 1em 1.5em;
+	align-items: flex-start;
 }
-.form-input > *{
-  width: 90%;
-  margin-top: .5em;
-  margin-bottom: 1em;
-  text-align: left;
+
+.content-inputs > * {
+	width: 90%;
+	margin-top: .5em;
+	margin-bottom: 1em;
+	text-align: left;
 }
-input[type="text"]{
-  margin-top: -1em;
-  padding: .2em;
-}
-.content-button{
+
+.content-buttons {
   width: 100%;
   height: 25%;
   padding: 1em 0 .5em 1.5em;
   text-align: left;
-  background-color: #f5f5f5;
-  border-top: 1px solid #d7d7d7;
-}
-input[type="submit"]{
-  margin-right: .5em;
-}
-/* h3{
-  text-align: initial;
-  margin-top: .5em;
-  margin-left: .5em;
+  background-color: hsl(0, 0%, 96%);
+  border-top: 1px solid hsl(0, 0%, 84%);
 }
 
-.form{
-  width: 25vw;
-  height: 20vw;
-  grid-row: 2/-2;
-  padding: 0 1em;
-  line-height: 2em;
-  display: grid;
-  grid-template-rows: repeat(3,1fr) 8%;
+input[type="text"] {
+	margin-top: -1em;
+	padding: .2em;
 }
 
-.form-input{
-  width: 24vw;
-  grid-row: 1/3;
-  display: flex;
-  flex-direction: column;
-  gap: .2em;
+input[type="submit"] {
+	margin-right: .5em;
 }
-
-.form label{
-  text-align: initial;
-}
-
-.content-button{
-  margin-top: 1em;
-  margin-bottom: -.2em;
-  margin-left: -1em;
-  padding-left: 1em;
-  min-width: 26.9vw;
-  text-align: initial;
-  background-color: #f8f8f8;
-  border-top: 1px solid #d7d7d7;
-}
-.content-button input{
-  margin: .7em .5em 1em 0;
-}
-.btn,
-input[type="submit"],
-input[type="button"] {
-  height: 67%;
-  border-radius: .5rem;
-  display: inline-block;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  background-color: transparent;
-} */

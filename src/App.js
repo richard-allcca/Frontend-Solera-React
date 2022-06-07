@@ -8,10 +8,14 @@ import FormService from './components/Form/FormService';
 import Card from './components/Card/Card';
 import Navbar from './components/NavBar/Navbar';
 
+
+/**
+ * It's a function that returns a div that contains a header, a navbar, a main section that contains a
+ * section with a list of cards and a form Service component.
+ */
 function App() {
 
   const { list, getList } = useContext(ListCardContext)
-
 
   useEffect(() => {
     getList()
@@ -28,14 +32,13 @@ function App() {
 
       <Navbar />
 
-      <main className='main'>
+      <main className='App-main'>
 
         <section className="list-cards">
           {list.map(item => {
             return <Card key={item.id} id={item.id} nombre={item.nombre} descripcion={item.descripcion} />
           })}
         </section>
-
 
         <FormService />
 

@@ -12,8 +12,10 @@ body {
 	background: #fff;
 }
 
-/* reset */
-
+/**
+ * A very simple reset
+ */
+ 
 ul > li {
 	list-style: none;
 }
