@@ -22,7 +22,6 @@ const ListCardProvider = ({ children }) => {
       const docs = querySnapshot.docs.map(doc => {
         return { id: doc.id, ...doc.data() }
       });
-      console.log(docs)
       setList(docs);
     } catch (error) {
       console.log(error)
