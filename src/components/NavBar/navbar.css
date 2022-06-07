@@ -1,0 +1,16 @@
+.navbar-content {
+	background-color: #f8f8f8;
+  padding: 2px;
+	/* border: .5px solid #d7d7d7; */
+}
+
+.nav-ul {
+	display: flex;
+	justify-content: flex-start;
+  align-content: center;
+  gap: 1em;
+  margin-top: 1em;
+}
+ .nav-ul li{
+   color: hsl(0, 0%, 50%);
+ }
