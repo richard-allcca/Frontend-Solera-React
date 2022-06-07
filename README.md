@@ -16,7 +16,7 @@
 
 ## Vista Previa
 
-[Ver Demo en linea]()
+[Ver Demo en linea y probar funcionalidad](https://dreamy-puffpuff-c13c57.netlify.app/)
 
 ![Data](./src/assets/front-solera.jpeg)
 
