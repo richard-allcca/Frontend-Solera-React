@@ -8,7 +8,8 @@ const FormService = () => {
   }
 
   return (
-    <>
+    <div className='form-content'>
+      <h3>Servicio</h3>
       <form onSubmit={handleSubmit} className='form'>
         <div className='form-input'>
           <label htmlFor="nombre">Nombre</label>
@@ -24,7 +25,7 @@ const FormService = () => {
       </form>
 
 
-    </>
+    </div>
   )
 }
 

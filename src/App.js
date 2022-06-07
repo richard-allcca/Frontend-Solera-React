@@ -26,10 +26,7 @@ function App() {
         </section>
 
 
-        <div className="form-content">
-          <h3>Servicio</h3>
-          <FormService />
-        </div>
+        <FormService />
 
       </main>
     </div>
