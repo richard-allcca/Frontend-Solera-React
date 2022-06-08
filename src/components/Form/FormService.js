@@ -51,8 +51,6 @@ const FormService = () => {
 
       <form onSubmit={handleSubmit} className="form">
 
-        <div className="content-inputs">
-
           <label htmlFor="nombre">Nombre</label>
           <input
             type="text"
@@ -71,20 +69,18 @@ const FormService = () => {
             maxLength="60"
             onChange={handleChange} />
 
-        </div>
-
 
         <div className="content-buttons">
 
           <input
             type="submit"
             value="Guardar"
-            className="btn btn-outline-success " />
+            className="btn btn-outline-success btn-service " />
 
           <input
             type="button"
             value="Cancelar"
-            className="btn btn-outline-danger"
+            className="btn btn-outline-danger btn-service"
             onClick={handleCancelar} />
 
         </div>

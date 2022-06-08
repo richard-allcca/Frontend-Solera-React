@@ -1,17 +1,14 @@
 .form-content {
-	max-height: 50vh;
+	height: 35vh;
 	display: flex;
 	flex-direction: column;
-	height: 55%;
-	border: 1px solid hsl(0, 0%, 84%);
-	box-shadow: 0 2px 3px 0 hsla(0, 0%, 0%, 0.1);
 	border: 1px solid hsl(0, 0%, 84%);
 }
 
 .form-title {
 	margin: 0 auto;
 	text-align: initial;
-	margin: .5em 0 0.5em 1em;
+	margin: .5em 0 0.5em .7em;
   font-size: 1.5em;
   font-weight: bold;
 }
@@ -21,45 +18,49 @@
  */
  
 .form {
+  max-height: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	height: 100%;
+	min-height: 85%;
 }
 
-.content-inputs {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	height: 70%;
-	padding: 0em 0 1em 1.5em;
-	align-items: flex-start;
-}
-
-.content-inputs > * {
-	width: 90%;
-	margin-top: .5em;
-	margin-bottom: 1em;
-	text-align: left;
-}
-
-.content-buttons {
-  width: 100%;
-  height: 25%;
-  padding: 1em 0 .5em 1.5em;
+label{
   text-align: left;
-  background-color: hsl(0, 0%, 96%);
-  border-top: 1px solid hsl(0, 0%, 84%);
+  padding-left: 1em;
+  margin-bottom: -1em;
 }
 
 input[type="text"] {
-	margin-top: -1em;
+  width: 90%;
+	margin: -.5em auto 0 auto  ;
 	padding: .2em;
 }
 
-input[type="submit"] {
-	margin-right: .5em;
+.content-buttons {
+  width: 100.5%;
+  height: 20%;
+  margin-left: -.5px;
+  padding: 1.5em;
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  background-color: hsl(0, 0%, 96%);
+  border-top: 1px solid hsl(0, 0%, 84%);
+  border-right: 1px solid hsl(0, 0%, 84%);
+  border-bottom: 1px solid hsl(0, 0%, 84%);
+  border-left: 0.1px solid hsl(0, 0%, 84%);
 }
+
+
+  .btn-service{
+    min-height: 2.3rem;
+	margin-right: .5em;
+  /* padding: .5em; */
+}
+
 @media screen and (max-width: 600px) {
   .form-content {
     min-width: 100%;
