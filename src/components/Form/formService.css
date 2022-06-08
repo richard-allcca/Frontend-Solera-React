@@ -60,3 +60,16 @@ input[type="text"] {
 input[type="submit"] {
 	margin-right: .5em;
 }
+@media screen and (max-width: 600px) {
+  .form-content {
+    min-width: 100%;
+    margin: 1em auto 0 5%;
+    height: 100%;
+  }
+  .content-inputs {
+    height: 100%;
+  }
+  .content-buttons {
+    height: 100%;
+  }
+}

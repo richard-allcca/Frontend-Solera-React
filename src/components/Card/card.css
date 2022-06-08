@@ -35,3 +35,8 @@
   color: hsl(240, 60%, 50%);
   font-weight: bold;
 }
+@media screen and (max-width: 600px) {
+  .card-content{
+    max-width: 100vw;
+  }
+}
