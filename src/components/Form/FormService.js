@@ -7,6 +7,7 @@ import ListCardContext from '../../context/listCardContext';
 import './formService.css';
 // firebase
 import appFirestore from '../../credenciales';
+import capitalizaValueObj from '../../helpers/helperCapitalizar';
 const db = getFirestore(appFirestore);
 
 
@@ -23,15 +24,17 @@ const FormService = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    let serviceCapitalizado = capitalizaValueObj(service);
+
     if (serviceIdDb === '') {
       try {
-        await addDoc(collection(db, 'services'), { ...service });
+        await addDoc(collection(db, 'services'), { ...serviceCapitalizado });
       } catch (error) {
         console.log(error);
       }
     } else {
       try {
-        await setDoc(doc(db, 'services', serviceIdDb), { ...service });
+        await setDoc(doc(db, 'services', serviceIdDb), { ...serviceCapitalizado });
         setServiceIdDb('');
       } catch (error) {
         console.log(error);
@@ -56,7 +59,7 @@ const FormService = () => {
             id="nombre"
             name="nombre"
             value={nombre}
-            maxLength="18"
+            maxLength="22"
             onChange={handleChange} />
 
           <label htmlFor="descripción">Descripción</label>
