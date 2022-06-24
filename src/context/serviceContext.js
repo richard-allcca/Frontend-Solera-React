@@ -1,4 +1,5 @@
 import React, { createContext, useState } from 'react';
+import { addDoc } from 'firebase/firestore';
 
 const ServiceContext = createContext();
 
@@ -19,11 +20,9 @@ const ServiceProvider = ({ children }) => {
 
   const [service, setService] = useState(initialState)
 
-  const [serviceIdDb, setServiceIdDb] = useState('')
+  // const [serviceIdDb, setServiceIdDb] = useState('')
+  const [ idService, setIdService ] = useState('')
 
-  const handleCancelar = (e) => {
-    setService(initialState)
-  }
 
   const handleChange = (e) => {
     setService({
@@ -32,18 +31,29 @@ const ServiceProvider = ({ children }) => {
     });
   }
 
+  const createData = async (form) => {
+    console.log(form)
+    // try {
+    //   await addDoc('services', { ...form })
+    // } catch (error) {
+    //   console.log(error)
+    // }
+  }
+
   const reset = () => {
-    setService(initialState)
+    // TODO: resolviendo
+    console.log(service)
+    console.log(idService)
   }
 
   const data = {
     service,
     setService,
     handleChange,
-    serviceIdDb,
-    setServiceIdDb,
-    handleCancelar,
     reset,
+    idService,
+    setIdService,
+    createData
   }
 
   return (
