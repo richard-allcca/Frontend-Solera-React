@@ -4,7 +4,7 @@ import Card2 from './../components/Card/Card2';
 
 const Services = () => {
 
-
+  console.log('component services')
 
   return (
     <div className='App-main'>
@@ -15,6 +15,3 @@ const Services = () => {
 }
 
 export default Services
-
-// ! Importante
-// validar que no esten vacios los campos del formulario(les quite el required)

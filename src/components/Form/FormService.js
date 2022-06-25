@@ -15,25 +15,19 @@ const initialState = {
   descripcion: '',
 }
 
+
 const FormService = () => {
-  const { service, createData } = useContext(ServiceContext);
+  // constexto
+  const { stateForm, getList, setFullCharge, createData } = useContext(ServiceContext);
+  // state local
+  const [ formInput, setFormInput ] = useState(initialState)
 
-  // ==========================================================
-  // ? nuevo servicio
-  // ==========================================================
-
-  // * guarda servicio en estado local
-  const [ formInput, setFormInput ] = useState(service)
-  //* data de firabase o initialState
-  const [ dataToEdit, setDataToEdit ] = useState(null)
+  console.log('component FormService')
 
   useEffect(() => {
-    if (dataToEdit) {
-      setFormInput(dataToEdit)
-    } else {
-      setFormInput(initialState)
-    }
-  }, [ dataToEdit ])
+    setFormInput(stateForm)
+  }, [ stateForm ])
+
 
   const handleChange = (e) => {
     setFormInput({
@@ -48,32 +42,22 @@ const FormService = () => {
     if (!formInput.nombre || !formInput.descripcion) {
       return alert('Todos los campos son obligatorios')
     }
-    // helpers
 
     let serviceCapitalizado = capitalizaValueObj(formInput);
 
-    if (!formInput.id) {
-      try {
-        // await addDoc(collection(db, 'services'), { ...serviceCapitalizado });
-        await createData(serviceCapitalizado)
-        // alert('guardar servicio')
-      } catch (error) {
-        console.log(error);
-      }
-    } else {
-      try {
-        // await setDoc(doc(db, 'services', isServiceDb), { ...serviceCapitalizado });
-        alert('actualizar servicio' + serviceCapitalizado)
-      } catch (error) {
-        console.log(error);
-      }
+    try {
+      await createData(serviceCapitalizado)
+      setFullCharge(false);
+      getList();
+    } catch (error) {
+      console.log(error);
     }
+
     handleReset();
   };
 
-  const handleReset = () => {
+  const handleReset = (e) => {
     setFormInput(initialState)
-    setDataToEdit(null)
   }
 
   return (
@@ -103,7 +87,7 @@ const FormService = () => {
         <div className="content-buttons">
 
           <Input type='submit' valor='Guardar' myClass='btn-outline-success' />
-          <Input type='button' valor='Cancelar' myClass='btn-outline-danger' />
+          <Input type='button' valor='Cancelar' myClass='btn-outline-danger' click={handleReset} />
 
         </div>
 

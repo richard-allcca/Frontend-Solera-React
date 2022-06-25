@@ -10,6 +10,18 @@ import credentials from '../../credenciales';
 const db = getFirestore(credentials);
 
 
+/**
+ * I'm trying to get the data from the database and set it in the state of the ServiceContext.
+ * 
+ * I'm using the useEffect hook to get the data from the database and set it in the state of the
+ * ServiceContext.
+ * 
+ * I'm using the useContext hook to get the data from the ServiceContext.
+ * 
+ * I'm using the useContext hook to get the data from the ListCardContext.
+ * 
+ * @returns The component is being returned.
+ */
 const Card = ({ id, nombre, descripcion }) => {
   const { getList } = useContext(ListCardContext);
   const { setService, idService, setIdService } = useContext(ServiceContext);
