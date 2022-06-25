@@ -17,13 +17,11 @@ const initialState = {
 
 
 const FormService = () => {
-  // constexto
-  const { stateForm, getList, setFullCharge, createData } = useContext(ServiceContext);
-  // state local
+
   const [ formInput, setFormInput ] = useState(initialState)
+  const { stateForm, getList, setFullCharge, createData, updateService } = useContext(ServiceContext);
 
-  console.log('component FormService')
-
+  // llena el formuario al editar
   useEffect(() => {
     setFormInput(stateForm)
   }, [ stateForm ])
@@ -45,14 +43,26 @@ const FormService = () => {
 
     let serviceCapitalizado = capitalizaValueObj(formInput);
 
-    try {
-      await createData(serviceCapitalizado)
-      setFullCharge(false);
-      getList();
-    } catch (error) {
-      console.log(error);
-    }
+    if (formInput.id) {
+      const { id, nombre, descripcion } = formInput;
+      try {
+        setFullCharge(false);
+        await updateService({ id, nombre, descripcion });
+      } catch (error) {
+        console.log(error);
+      }
 
+    } else {
+
+      try {
+        await createData(serviceCapitalizado)
+        setFullCharge(false);
+        getList();
+      } catch (error) {
+        console.log(error);
+      }
+
+    }
     handleReset();
   };
 

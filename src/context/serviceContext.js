@@ -18,12 +18,13 @@ const ServiceProvider = ({ children }) => {
   const [ fullCharge, setFullCharge ] = useState(false)
   // lista de servicios descargados
   const [ list, setList ] = useState([])
-  // contenido de inputs en formulario
+  // inputs en formulario
   const [ stateForm, setStateForm ] = useState(initialState)
 
 
-  //* =========================================================
+  // =========================================================
   const getList = async () => {
+
     try {
       const querySnapshot = await getDocs(collection(db, 'services'));
       const docs = querySnapshot.docs.map(doc => {
@@ -36,9 +37,8 @@ const ServiceProvider = ({ children }) => {
     }
   }
 
-//* =========================================================
+  // =========================================================
   const createData = async (form) => {
-
     const { nombre, descripcion } = form;
 
     try {
@@ -49,33 +49,32 @@ const ServiceProvider = ({ children }) => {
     }
   }
 
-
-  //TODO =========================================================
-  const editService = async (service) => {
-
+  // =========================================================
+  const updateService = async (service) => {
     const { nombre, descripcion, id } = service;
 
-    setStateForm({ nombre, descripcion })
+    let newList = [];
 
     try {
+      await setDoc(doc(db, 'services', id), { nombre, descripcion });
+      newList = list.map((item) => {
 
-      // await setDoc(doc(db, 'services', id), { nombre, descripcion });
-      // eslint-disable-next-line array-callback-return
-      const newList = list.map(item => {
         if (item.id === id) {
           item.nombre = nombre;
           item.descripcion = descripcion;
         }
-
+        return item;// innecesario para que funcione el map
       })
-      console.log(newList)
-      setList(newList)
+
+      setStateForm(initialState);
+
     } catch (error) {
       console.log(error);
     }
+    setList(newList)
   }
 
-  //* =========================================================
+  // =========================================================
   const deleteService = async (id, listCard) => {
     let confirm = window.confirm('¿Estás seguro de que quieres eliminar este servicio?')
 
@@ -93,15 +92,15 @@ const ServiceProvider = ({ children }) => {
   };
 
   const data = {
-    stateForm,//
+    stateForm,
     setStateForm,
-    list,//
-    getList,//
-    fullCharge,//
-    setFullCharge,//
-    createData,//
-    editService,//
-    deleteService,//
+    list,
+    getList,
+    fullCharge,
+    setFullCharge,
+    createData,
+    updateService,
+    deleteService,
   }
 
   return (

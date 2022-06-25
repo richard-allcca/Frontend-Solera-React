@@ -6,17 +6,12 @@ import ServiceContext from './../../context/serviceContext';
 // firebase
 import Loading from './../Loading.js/Loading';
 
-//! ===========================================================
-// ? Notas:
-// - se repite tres veces el renderizado por las acciones de c/ funcion en eventos que modifican el estado
-//! ===========================================================
 
 
 const Card2 = () => {
   const [ listCard, setlistCard ] = useState([])
 
-  // context
-  const { getList, list, fullCharge, editService, deleteService } = useContext(ServiceContext)
+  const { getList, list, fullCharge, setStateForm, deleteService } = useContext(ServiceContext)
 
 
   useEffect(() => {
@@ -55,7 +50,7 @@ const Card2 = () => {
                   type="button"
                   className='card-button'
                   value="Editar"
-                  onClick={() => editService(item)}
+                  onClick={() => setStateForm(item)}
                 />
                 <input
                   type="button"
