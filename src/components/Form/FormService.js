@@ -19,7 +19,7 @@ const initialState = {
 const FormService = () => {
 
   const [ formInput, setFormInput ] = useState(initialState)
-  const { stateForm, getList, setFullCharge, createData, updateService } = useContext(ServiceContext);
+  const { stateForm, setStateForm, getList, setFullCharge, createData, updateService } = useContext(ServiceContext);
 
   // llena el formuario al editar
   useEffect(() => {
@@ -67,7 +67,7 @@ const FormService = () => {
   };
 
   const handleReset = (e) => {
-    setFormInput(initialState)
+    setStateForm(initialState)
   }
 
   return (
